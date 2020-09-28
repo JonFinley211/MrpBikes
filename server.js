@@ -10,7 +10,7 @@ const SELECT_ALL_ITEMS_QUERY = 'SELECT * FROM item_master';
 const SELECT_ALL_PSITEMS_QUERY = 'SELECT * FROM product_structure';
 
 const SELECT_MRFG_QUERY = "SELECT im.im_item_no, im.im_desc, im.im_itemtype  FROM item_master im WHERE im.im_itemtype = 'fg'";
-
+const JAWSDB_URL="mysql://q3vkaci9rd4kof20:eoi2k4tb4y8weyr4@durvbryvdw2sjcm5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/s2ccpvy7askck4c4"
 
 
 
@@ -20,21 +20,22 @@ const SELECT_MRFG_QUERY = "SELECT im.im_item_no, im.im_desc, im.im_itemtype  FRO
 //     password: '12345',
 //     database: 'BikeDB'
 // })
-if (process.env.JAWSDB_URL) {
-    connection = mysql.createConnection(process.env.JAWSDB_URL);
+
 const connection = mysql.createConnection({
     host:'durvbryvdw2sjcm5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
 
     user:'q3vkaci9rd4kof20',
     password: 'eoi2k4tb4y8weyr4',
     database: 's2ccpvy7askck4c4'
-})
-}
-connection.connect(err =>{
-    if(err){
-        return err;
-    }
 });
+connection.connect(function(err) {
+    if (err) {
+      console.error("error connecting: " + err.stack);
+      return;
+    }
+    console.log("connected as id " + connection.threadId);
+  });
+
 app.use(cors());
 
 app.get('/', (req, res) => {
