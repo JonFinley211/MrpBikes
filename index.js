@@ -13,16 +13,20 @@ const SELECT_MRFG_QUERY = "SELECT im.im_item_no, im.im_desc, im.im_itemtype  FRO
 
 
 
-if (process.env.JAWSDB_URL){
-    connection=mysql.createConnection(process.env.JAWSDB_URL);
-} else{
+
+// const connection = mysql.createConnection({
+//     host:'localhost',
+//     user:'Jon',
+//     password: '12345',
+//     database: 'BikeDB'
+// })
 const connection = mysql.createConnection({
-    host:'localhost',
-    user:'Jon',
-    password: '12345',
-    database: 'BikeDB'
-});
-};
+    host:'durvbryvdw2sjcm5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+
+    user:'q3vkaci9rd4kof20',
+    password: 'eoi2k4tb4y8weyr4',
+    database: 's2ccpvy7askck4c4'
+})
 
 connection.connect(err =>{
     if(err){
