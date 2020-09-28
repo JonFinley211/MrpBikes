@@ -20,6 +20,8 @@ const SELECT_MRFG_QUERY = "SELECT im.im_item_no, im.im_desc, im.im_itemtype  FRO
 //     password: '12345',
 //     database: 'BikeDB'
 // })
+if (process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
 const connection = mysql.createConnection({
     host:'durvbryvdw2sjcm5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
 
@@ -27,7 +29,7 @@ const connection = mysql.createConnection({
     password: 'eoi2k4tb4y8weyr4',
     database: 's2ccpvy7askck4c4'
 })
-
+}
 connection.connect(err =>{
     if(err){
         return err;
