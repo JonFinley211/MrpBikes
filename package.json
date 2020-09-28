@@ -2,7 +2,7 @@
   "name": "bike-server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
      "client-install": "npm install --prefix client",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
