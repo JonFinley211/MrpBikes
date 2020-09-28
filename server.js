@@ -23,7 +23,7 @@ const JAWSDB_URL="mysql://q3vkaci9rd4kof20:eoi2k4tb4y8weyr4@durvbryvdw2sjcm5.cbe
 
 const connection = mysql.createConnection({
     host:'durvbryvdw2sjcm5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-
+port:3306,
     user:'q3vkaci9rd4kof20',
     password: 'eoi2k4tb4y8weyr4',
     database: 's2ccpvy7askck4c4'
