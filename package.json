@@ -8,14 +8,13 @@
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node index.js",
     "start:dev": "concurrently \"npm run client\"",
-    "server": "node index.js",
+    "server": "nodemon index.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "npm install --prefix client",
     "heroku-postbuild2": "npm run build --prefix client"
   },
-
-  },
+  
   "author": "Jon",
   "license": "ISC",
   "dependencies": {
