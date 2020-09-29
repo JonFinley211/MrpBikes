@@ -11,10 +11,10 @@
     "server": "nodemon index.js",
     "client": "npm run start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "installz": "npm install",
-    "buildz": "npm run build",
-    "heroku-postbuild": "npm install",
-    "heroku-postbuild2": "npm run build"
+    "installz": "cd client npm install",
+    "buildz": "cd client npm run build",
+    "heroku-postbuild": "cd client npm install",
+    "heroku-postbuild2": "cd client npm run build"
   },
   
   "author": "Jon",
