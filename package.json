@@ -13,7 +13,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "installz": "npm install --prefix client",
     "buildz": " npm run build --prefix client",
-    "heroku-postbuild": "npm install --prefix client",
+    "heroku-postbuild": "npm run install --prefix client",
     "heroku-postbuild2": "npm run build --prefix client"
   },
   
