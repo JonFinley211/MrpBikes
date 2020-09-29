@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const mysql = require('mysql')
-
+const mysql = require('mysql');
+// var connection = mysql.createConnection(process.env.JAWSDB_URL);
 const app = express();
 const path = require('path');
 const port = process.env.PORT || 5000
@@ -16,10 +16,10 @@ const JAWSDB_URL = "mysql://q3vkaci9rd4kof20:eoi2k4tb4y8weyr4@durvbryvdw2sjcm5.c
 
 
 
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, () => {
-//   console.log(`Server is running on port ${PORT}.`);
-// });
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});
 // const connection = mysql.createConnection({
 //     host:'localhost',
 //     user:'Jon',
@@ -45,7 +45,7 @@ connection.connect(function (err) {
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send('go to /bikes to see bikes, got to /parts to see parts')
+    res.json(path.join(__dirname, "public/index.html"));
 });
 app.get('/parts', (req, res) => {
     connection.query(SELECT_ALL_PARTS_QUERY, (err, results) => {
