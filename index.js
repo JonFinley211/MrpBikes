@@ -15,13 +15,6 @@ const JAWSDB_URL = "mysql://q3vkaci9rd4kof20:eoi2k4tb4y8weyr4@durvbryvdw2sjcm5.c
 
 
 
-if(process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'client/build')))
-    //
-    app.get('*', (req, res) => {
-      res.sendfile(path.join(__dirname = 'client/build/index.html'))
-    })
-  }
 
 // const PORT = process.env.PORT || 3000;
 // app.listen(PORT, () => {
@@ -202,13 +195,13 @@ app.get('/bikes', (req, res) => {
         }
     });
 });
-// if (process.env.NODE_ENV === 'production') {
-//     app.use(express.static( 'client/build' ));
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static( 'client/build' ));
   
-//     app.get('*', (req, res) => {
-//         res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
-//     });
-//   }
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
+    });
+  }
 app.listen(process.env.PORT || 4000)
 // app.listen(4000, () => {
 //     console.log('to to /bikes for bikes server')
