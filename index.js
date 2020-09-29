@@ -43,13 +43,13 @@ connection.connect(function (err) {
 });
 
 app.use(cors());
-// if(process.env.NODE_ENV === 'production') {
-//     app.use(express.static(path.join(__dirname, 'client/build')))
-//     //
-//     app.get('*', (req, res) => {
-//       res.sendfile(path.join(__dirname = 'client/build/index.html'))
-//     })
-//   }
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, 'client/build')))
+    //
+    app.get('*', (req, res) => {
+      res.sendfile(path.join(__dirname = 'client/build/index.html'))
+    })
+  }
   
   //Route Operations...
   app.get('/', (req, res) => {
