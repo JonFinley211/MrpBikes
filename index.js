@@ -13,8 +13,14 @@ const SELECT_MRFG_QUERY = "SELECT im.im_item_no, im.im_desc, im.im_itemtype  FRO
 const JAWSDB_URL = "mysql://q3vkaci9rd4kof20:eoi2k4tb4y8weyr4@durvbryvdw2sjcm5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/s2ccpvy7askck4c4"
 
 // const express = require('express');const app = express();const path = require('path');const port = process.env.PORT || 4000;
-
-
+// use(express.static(path.join(__dirname, 'client/build')));
+// production (process.env.NODE_ENV === 'production') {  app.use(express.static(path.join(__dirname, 'client/build')));  //  app.get('*', (req, res) => {    res.sendfile(path.join(__dirname = 'client/build/index.html'));  })}
+// build app.get('*', (req, res) => {  res.sendFile(path.join(__dirname+'/client/public/index.html'));})
+// start server.listen(port, (req, res) => {  console.log( `server listening on port: ${port}`);})
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port ${PORT}.`);
+// });
 // const connection = mysql.createConnection({
 //     host:'localhost',
 //     user:'Jon',
