@@ -4,14 +4,14 @@ const mysql = require('mysql')
 
 const app = express();
 const path = require('path');
-const port = process.env.PORT.JAWSDB_URL || 5000
+const port = process.env.PORT || 5000
 const SELECT_ALL_BIKES_QUERY = 'SELECT * FROM bikes';
 const SELECT_ALL_PARTS_QUERY = 'SELECT * FROM parts';
 const SELECT_ALL_ITEMS_QUERY = 'SELECT * FROM item_master';
 const SELECT_ALL_PSITEMS_QUERY = 'SELECT * FROM product_structure';
 
 const SELECT_MRFG_QUERY = "SELECT im.im_item_no, im.im_desc, im.im_itemtype  FROM item_master im WHERE im.im_itemtype = 'fg'";
-// const JAWSDB_URL = "mysql://q3vkaci9rd4kof20:eoi2k4tb4y8weyr4@durvbryvdw2sjcm5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/s2ccpvy7askck4c4"
+const JAWSDB_URL = "mysql://q3vkaci9rd4kof20:eoi2k4tb4y8weyr4@durvbryvdw2sjcm5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/s2ccpvy7askck4c4"
 
 
 
@@ -195,7 +195,6 @@ app.get('/bikes', (req, res) => {
         }
     });
 });
-
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static( 'client/build' ));
   
@@ -203,7 +202,7 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
     });
   }
-app.listen(process.env.PORT.JAWSDB_URL || 5000)
+app.listen(process.env.PORT || 4000)
 // app.listen(4000, () => {
 //     console.log('to to /bikes for bikes server')
 // });
