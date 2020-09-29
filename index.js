@@ -196,7 +196,8 @@ app.get('/bikes', (req, res) => {
         }
     });
 });
-app.listen(4000, () => {
-    console.log('to to /bikes for bikes server')
-});
+app.listen(process.env.PORT || 4000)
+// app.listen(4000, () => {
+//     console.log('to to /bikes for bikes server')
+// });
 
