@@ -5,14 +5,14 @@
   "main": "index.js",
   "scripts": {
  
-    "client-install": "npm install --prefix client",
+  "client-install": "npm install --prefix client",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "server": "nodemon server.js",
     "client": "cd client && npm run start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "install": "cd client && npm install",
+    "install": "cd client && npm run install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
