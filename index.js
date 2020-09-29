@@ -43,10 +43,21 @@ connection.connect(function (err) {
 });
 
 app.use(cors());
-
-app.get('/', (req, res) => {
-    res.send('go to /bikes to see bikes, got to /parts to see parts')
-});
+// if(process.env.NODE_ENV === 'production') {
+//     app.use(express.static(path.join(__dirname, 'client/build')))
+//     //
+//     app.get('*', (req, res) => {
+//       res.sendfile(path.join(__dirname = 'client/build/index.html'))
+//     })
+//   }
+  
+  //Route Operations...
+  app.get('/', (req, res) => {
+    res.send('Root route of server');
+  });
+// app.get('/', (req, res) => {
+//     res.send('go to /bikes to see bikes, got to /parts to see parts')
+// });
 app.get('/parts', (req, res) => {
     connection.query(SELECT_ALL_PARTS_QUERY, (err, results) => {
         if (err) {
