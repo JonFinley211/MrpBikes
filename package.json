@@ -9,12 +9,12 @@
     "start:prod": "node index.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "server": "nodemon index.js",
-    "client": "npm run start --prefix client",
+    "client": "npm run start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "installz": "npm install --prefix client",
-    "buildz": " npm run build --prefix client",
-    "heroku-postbuild": "npm install --prefix client",
-    "heroku-postbuild2": "npm run build --prefix client"
+    "installz": "npm install",
+    "buildz": "npm run build",
+    "heroku-postbuild": "npm install",
+    "heroku-postbuild2": "npm run build"
   },
   
   "author": "Jon",
