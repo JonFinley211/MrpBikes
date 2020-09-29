@@ -45,7 +45,7 @@ connection.connect(function (err) {
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send('go to /bikes to see bikes, got to /parts to see parts')
+    res.sendFile(path.join(__dirname, "../public/home.html"));
 });
 app.get('/parts', (req, res) => {
     connection.query(SELECT_ALL_PARTS_QUERY, (err, results) => {
