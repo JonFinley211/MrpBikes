@@ -216,7 +216,7 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
     });
   }
-app.listen(process.env.PORT || 4000)
+app.listen(process.env.PORT.JAWSDB_URL || 4000)
 // app.listen(4000, () => {
 //     console.log('to to /bikes for bikes server')
 // });
