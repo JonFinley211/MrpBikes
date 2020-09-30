@@ -59,7 +59,7 @@ connection.connect(function (err) {
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send(path.join(__dirname, "../client/build/index.html"));
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 app.get('/parts', (req, res) => {
     connection.query(SELECT_ALL_PARTS_QUERY, (err, results) => {
