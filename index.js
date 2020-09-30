@@ -4,6 +4,7 @@ const mysql = require('mysql');
 // var connection = mysql.createConnection(process.env.JAWSDB_URL);
 const app = express();
 const path = require('path');
+const router = require("express").Router();
 const port = process.env.PORT || 5000
 const SELECT_ALL_BIKES_QUERY = 'SELECT * FROM bikes';
 const SELECT_ALL_PARTS_QUERY = 'SELECT * FROM parts';
@@ -16,8 +17,8 @@ const JAWSDB_URL = "mysql://q3vkaci9rd4kof20:eoi2k4tb4y8weyr4@durvbryvdw2sjcm5.c
 
 
 require('dotenv').config();
-const mysql = require('mysql');
-const connection;
+
+
 if(process.env.JAWSDB_URL) {  
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
@@ -30,10 +31,10 @@ if(process.env.JAWSDB_URL) {
         database: 'BikeDB'
   });
 }
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port ${PORT}.`);
+// });
 // const connection = mysql.createConnection({
 //     host:'localhost',
 //     user:'Jon',
@@ -209,6 +210,9 @@ app.get('/bikes', (req, res) => {
         }
     });
 });
+router.use(function(req, res) {
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  });
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static( 'client/build' ));
   
@@ -216,6 +220,7 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
     });
   }
+//   Start the API server
 app.listen(process.env.PORT.JAWSDB_URL || 4000)
 // app.listen(4000, () => {
 //     console.log('to to /bikes for bikes server')
