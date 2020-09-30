@@ -4,7 +4,7 @@ const mysql = require('mysql');
 // var connection = mysql.createConnection(process.env.JAWSDB_URL);
 const app = express();
 const path = require('path');
-const PORT = process.env.PORT 
+const PORT = process.env.PORT || 4000
 const SELECT_ALL_BIKES_QUERY = 'SELECT * FROM bikes';
 const SELECT_ALL_PARTS_QUERY = 'SELECT * FROM parts';
 const SELECT_ALL_ITEMS_QUERY = 'SELECT * FROM item_master';
@@ -46,19 +46,18 @@ const connection = mysql.createConnection({
     database: 's2ccpvy7askck4c4'
 });
 
-mysql.connect(process.env.JAWSDB_URI);
-// connection.connect(function (err) {
-//     if (err) {
-//         console.error("error connecting: " + err.stack);
-//         return;
-//     }
-//     console.log("connected as id " + connection.threadId);
-// });
+connection.connect(function (err) {
+    if (err) {
+        console.error("error connecting: " + err.stack);
+        return;
+    }
+    console.log("connected as id " + connection.threadId);
+});
 
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, "../client/build/index.html"));
+    res.send(path.join(__dirname, "../client/build/index.html"));
 });
 app.get('/parts', (req, res) => {
     connection.query(SELECT_ALL_PARTS_QUERY, (err, results) => {
