@@ -16,7 +16,9 @@ const JAWSDB_URL = "mysql://q3vkaci9rd4kof20:eoi2k4tb4y8weyr4@durvbryvdw2sjcm5.c
 
 
 // require('dotenv').config();
-
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+  }
 
 // if(process.env.JAWSDB_URL) {  
 //   connection = mysql.createConnection(process.env.JAWSDB_URL);
