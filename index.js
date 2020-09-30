@@ -23,7 +23,7 @@ const JAWSDB_URL = "mysql://q3vkaci9rd4kof20:eoi2k4tb4y8weyr4@durvbryvdw2sjcm5.c
 app.use(express.static(path.join(__dirname, './client/build')))
 
 app.get('*', function(_, res) {
-  res.sendFile(path.join(__dirname, './client/build/index.html'), function(err) {
+  res.send(path.join(__dirname, './client/build/index.html'), function(err) {
     if (err) {
       res.status(500).send(err)
       console.log("this is and error")
