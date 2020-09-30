@@ -1,38 +1,33 @@
 const express = require('express');
+const Port = process.env.PORT || 3000
 const cors = require('cors');
 const mysql = require('mysql');
 // var connection = mysql.createConnection(process.env.JAWSDB_URL);
 const app = express();
 const path = require('path');
 const router = require("express").Router();
-const port = process.env.PORT || 5000
+
 const SELECT_ALL_BIKES_QUERY = 'SELECT * FROM bikes';
 const SELECT_ALL_PARTS_QUERY = 'SELECT * FROM parts';
 const SELECT_ALL_ITEMS_QUERY = 'SELECT * FROM item_master';
 const SELECT_ALL_PSITEMS_QUERY = 'SELECT * FROM product_structure';
 
 const SELECT_MRFG_QUERY = "SELECT im.im_item_no, im.im_desc, im.im_itemtype  FROM item_master im WHERE im.im_itemtype = 'fg'";
-const JAWSDB_URL = "mysql://q3vkaci9rd4kof20:eoi2k4tb4y8weyr4@durvbryvdw2sjcm5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/s2ccpvy7askck4c4"
+// const JAWSDB_URL = "mysql://q3vkaci9rd4kof20:eoi2k4tb4y8weyr4@durvbryvdw2sjcm5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/s2ccpvy7askck4c4"
 
+// require('./routes.html-routes')(app);
 
-
-// require('dotenv').config();
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
-  }
-if(process.env.JAWSDB_URL) {  
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
+if (process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
-  //otherwise, we're going to use our local connection!  put your local db set stuff here
-  //(and remember our best practice of using the dotenv package and a .env file ;)
-  connection = mysql.createConnection({
-    host:'localhost',
-        user:'Jon',
-       password: '12345',
+    //otherwise, we're going to use our local connection!  put your local db set stuff here
+    //(and remember our best practice of using the dotenv package and a .env file ;)
+    connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'Jon',
+        password: '12345',
         database: 'BikeDB'
-  });
+    });
 }
 // const PORT = process.env.PORT || 3000;
 // app.listen(PORT, () => {
@@ -213,19 +208,19 @@ app.get('/bikes', (req, res) => {
         }
     });
 });
-router.use(function(req, res) {
+router.use(function (req, res) {
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
-  });
+});
 // if (process.env.NODE_ENV === 'production') {
 //     app.use(express.static( 'client/build' ));
-  
+
 //     app.get('*', (req, res) => {
 //         res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
 //     });
 //   }
 //   Start the API server
-app.listen(process.env || 4000)
-// app.listen(4000, () => {
-//     console.log('to to /bikes for bikes server')
-// });
+
+app.listen(PORT, () => {
+    console.log('to to /bikes for bikes server')
+});
 
