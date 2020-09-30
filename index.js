@@ -3,6 +3,7 @@ const cors = require('cors');
 const mysql = require('mysql');
 // var connection = mysql.createConnection(process.env.JAWSDB_URL);
 const app = express();
+const router = require("express").Router();
 const path = require('path');
 const PORT = process.env.PORT || 4000
 const SELECT_ALL_BIKES_QUERY = 'SELECT * FROM bikes';
@@ -57,7 +58,9 @@ connection.connect(function (err) {
 });
 
 app.use(cors());
-
+router.use(function(req, res) {
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  });
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
