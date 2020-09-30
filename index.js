@@ -220,13 +220,13 @@ app.get('/bikes', (req, res) => {
         }
     });
 });
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static( 'client/build' ));
+// if (process.env.NODE_ENV === 'production') {
+//     app.use(express.static( 'client/build' ));
   
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
-    });
-  }
+//     app.get('*', (req, res) => {
+//         res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
+//     });
+//   }
 // app.listen(process.env.PORT.JAWSDB_URL || 4000)
 app.listen(PORT, () => {
     console.log('to to /bikes for bikes server')
