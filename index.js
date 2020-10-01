@@ -67,7 +67,7 @@ if(process.env.JAWSDB_URL) {
 //   });
   
   //Route Operations...
-  app.get('/', (req, res) => {
+  app.get('/home', (req, res) => {
     res.send('Root route of server');
   });
 connection.connect(function (err) {
