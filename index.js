@@ -4,7 +4,7 @@ const mysql = require('mysql');
 // var connection = mysql.createConnection(process.env.JAWSDB_URL);
 const app = express();
 const path = require('path');
-// const port = process.env.PORT || 5000
+const PORT = process.env.PORT || 3000
 const SELECT_ALL_BIKES_QUERY = 'SELECT * FROM bikes';
 const SELECT_ALL_PARTS_QUERY = 'SELECT * FROM parts';
 const SELECT_ALL_ITEMS_QUERY = 'SELECT * FROM item_master';
@@ -16,7 +16,7 @@ const JAWSDB_URL = "mysql://q3vkaci9rd4kof20:eoi2k4tb4y8weyr4@durvbryvdw2sjcm5.c
 
 
 require('dotenv').config();
-
+require('./routes/html-routes')(app)
 
 if(process.env.JAWSDB_URL) {  
   connection = mysql.createConnection(process.env.JAWSDB_URL);
@@ -53,7 +53,7 @@ if(process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'client/build')))
     //
     app.get('*', (req, res) => {
-      res.sendfile(path.join(__dirname = 'client/build/index.html'))
+      res.sendFile(path.join(__dirname = 'client/build/index.html'))
     })
   }
   
