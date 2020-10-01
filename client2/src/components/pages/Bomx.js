@@ -33,7 +33,7 @@ class Bomx extends Component {
 
 
   getmrfgBikes = _ => {
-    fetch('http://localhost:4000/mrfg')
+    fetch('https://serene-plains-84450.herokuapp.com/mrfg')
       .then(response => response.json())
       // .then((data)=>{
       //   console.log(data)
@@ -50,7 +50,7 @@ class Bomx extends Component {
     console.log(mrfgbike.mrfgid)
 
     console.log("llmrfg clicked")
-    fetch(`http://localhost:4000/boml?im_item_no=${mrfgbike.mrfgid}`)
+    fetch(`https://serene-plains-84450.herokuapp.com/boml?im_item_no=${mrfgbike.mrfgid}`)
       .then(response => response.json())
 
       .then(response => this.setState({ lboxes: response.data[0] }))

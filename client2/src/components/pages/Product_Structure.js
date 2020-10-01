@@ -20,7 +20,7 @@ class Product_Structure extends Component {
     this.getBikeParts();
   }
   getBikeParts = _ => {
-    fetch('http://localhost:4000/psitems')
+    fetch('https://serene-plains-84450.herokuapp.com/psitems')
       .then(response => response.json())
       // .then((data)=>{
       //   console.log(data)
@@ -29,7 +29,7 @@ class Product_Structure extends Component {
   }
   addBikePart = _ => {
     const { bikepart } = this.state;
-    fetch(`http://localhost:4000/psitems/add?ps_parent_item=${bikepart.psid}&ps_component_item=${bikepart.pscompin}&ps_qtyper=${bikepart.qtyper}&ps_uofm=${bikepart.uofm}`)
+    fetch(`https://serene-plains-84450.herokuapp.com/psitems/add?ps_parent_item=${bikepart.psid}&ps_component_item=${bikepart.pscompin}&ps_qtyper=${bikepart.qtyper}&ps_uofm=${bikepart.uofm}`)
       .then(this.getBikeParts)
       .catch(err => console.error(err))
   }

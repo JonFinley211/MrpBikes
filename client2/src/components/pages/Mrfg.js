@@ -31,7 +31,7 @@ class Mrfg extends Component {
     this.getmrfgBikes();
   }
   getmrfgBikes = _ => {
-    fetch('http://localhost:4000/mrfg')
+    fetch('https://serene-plains-84450.herokuapp.com/mrfg')
       .then(response => response.json())
       // .then((data)=>{
       //   console.log(data)
@@ -43,7 +43,7 @@ class Mrfg extends Component {
     const { mrfgbike } = this.state;
     console.log(mrfgbike.mrfgqty)
     console.log("mrfg clicked")
-    fetch(`http://localhost:4000/bomx?im_item_no=${mrfgbike.mrfgid}&grossqty=${mrfgbike.mrfgqty}`)
+    fetch(`https://serene-plains-84450.herokuapp.com/bomx?im_item_no=${mrfgbike.mrfgid}&grossqty=${mrfgbike.mrfgqty}`)
       .then(response => response.json())
 
       .then(response => this.setState({ boxes: response.data[0] }))

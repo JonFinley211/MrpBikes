@@ -21,7 +21,7 @@ class Item_Master extends Component {
     this.getBikes();
   }
   getBikes = _ => {
-    fetch('http://localhost:4000/items')
+    fetch('https://serene-plains-84450.herokuapp.com/items')
       .then(response => response.json())
       // .then((data)=>{
       //   console.log(data)
@@ -30,7 +30,7 @@ class Item_Master extends Component {
   }
   addBike = _ => {
     const { bike } = this.state;
-    fetch(`http://localhost:4000/items/add?im_item_no=${bike.id}&im_desc=${bike.desc}&im_uofm=${bike.uofm}&im_oh=${bike.oh}&im_itemtype=${bike.type}`)
+    fetch(`https://serene-plains-84450.herokuapp.com/items/add?im_item_no=${bike.id}&im_desc=${bike.desc}&im_uofm=${bike.uofm}&im_oh=${bike.oh}&im_itemtype=${bike.type}`)
       .then(this.getBikes)
 
       .catch(err => console.error(err))
