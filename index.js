@@ -54,17 +54,17 @@ if(process.env.JAWSDB_URL) {
 //     database: 'BikeDB'
 // })
 
-// if(process.env.NODE_ENV === 'production') {
-//     app.use(express.static(path.join(__dirname, 'client/build')))
-//     //
-//     app.get('*', (req, res) => {
-//       res.sendFile(path.join('index.html', { root: __dirname }))
-//     })
-//   }
-  app.use(express.static(path.join(__dirname, 'build')));
-app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname,'client', 'build', 'index.html'));
-  });
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, 'client/build')))
+    //
+    app.get('*', (req, res) => {
+      res.sendFile(path.join('index.html', { root: __dirname }))
+    })
+  }
+//   app.use(express.static(path.join(__dirname, 'build')));
+// app.get('/*', (req, res) => {
+//     res.sendFile(path.join(__dirname,'client', 'build', 'index.html'));
+//   });
   
   //Route Operations...
   app.get('/', (req, res) => {
@@ -82,7 +82,7 @@ app.use(cors());
 //---------------thought app.get('/')directed to indexhtml. howeverit does not------------------------
 app.get('/', (req, res) => {
     res.json(path.join(__dirname, "/build/index.html"));
-    console.log("building client");
+  
 });
 // ----------------------------------------------------------------------------------
 app.get('/parts', (req, res) => {
