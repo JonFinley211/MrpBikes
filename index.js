@@ -60,7 +60,8 @@ connection.connect(function (err) {
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.json(path.join(__dirname, "/build/index.html"));
+    res.json(path.join(__dirname, "/public/index.html"));
+
 });
 app.get('/parts', (req, res) => {
     connection.query(SELECT_ALL_PARTS_QUERY, (err, results) => {
