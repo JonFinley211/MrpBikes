@@ -55,7 +55,7 @@ if(process.env.JAWSDB_URL) {
 // })
 
 if(process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'client/build')))
+    app.use(express.static(path.join(__dirname, 'client2/build')))
     //
     app.get('*', (req, res) => {
       res.sendFile(path.join('index.html', { root: __dirname }))
@@ -234,10 +234,10 @@ app.get('/bikes', (req, res) => {
     });
 });
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static( 'client/build' ));
+    app.use(express.static( 'client2/build' ));
   
     app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
+        res.sendFile(path.join(__dirname, 'client2', 'build', 'index.html')); // relative path
         console.log("hi")
     });
   }
