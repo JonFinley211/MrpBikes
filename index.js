@@ -49,7 +49,18 @@ if(process.env.JAWSDB_URL) {
 //     database: 'BikeDB'
 // })
 
-
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, 'client/build')))
+    //
+    app.get('*', (req, res) => {
+      res.sendfile(path.join(__dirname = 'client/build/index.html'))
+    })
+  }
+  
+  //Route Operations...
+  app.get('/', (req, res) => {
+    res.send('Root route of server');
+  });
 connection.connect(function (err) {
     if (err) {
         console.error("error connecting: " + err.stack);
