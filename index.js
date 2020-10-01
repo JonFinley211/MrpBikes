@@ -16,7 +16,7 @@ const JAWSDB_URL = "mysql://q3vkaci9rd4kof20:eoi2k4tb4y8weyr4@durvbryvdw2sjcm5.c
 
 
 require('dotenv').config();
-require('./routes/html-routes')(app)
+
 //CORS
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
