@@ -54,13 +54,17 @@ if(process.env.JAWSDB_URL) {
 //     database: 'BikeDB'
 // })
 
-if(process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'client/build')))
-    //
-    app.get('*', (req, res) => {
-      res.sendFile(path.join('index.html', { root: __dirname }))
-    })
-  }
+// if(process.env.NODE_ENV === 'production') {
+//     app.use(express.static(path.join(__dirname, 'client/build')))
+//     //
+//     app.get('*', (req, res) => {
+//       res.sendFile(path.join('index.html', { root: __dirname }))
+//     })
+//   }
+  app.use(express.static(path.join(__dirname, 'build')));
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
   
   //Route Operations...
   app.get('/', (req, res) => {
