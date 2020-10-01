@@ -20,6 +20,7 @@ const JAWSDB_URL = "mysql://q3vkaci9rd4kof20:eoi2k4tb4y8weyr4@durvbryvdw2sjcm5.c
 
 if(process.env.JAWSDB_URL) {  
   connection = mysql.createConnection(process.env.JAWSDB_URL);
+  console.log("Jaws conncted")
 } else {
   //otherwise, we're going to use our local connection!  put your local db set stuff here
   //(and remember our best practice of using the dotenv package and a .env file ;)
@@ -58,11 +59,12 @@ connection.connect(function (err) {
 });
 
 app.use(cors());
-
-app.get('/', (req, res) => {
-    res.json(path.join(__dirname, "/public/index.html"));
-
-});
+//---------------thought app.get('/')directed to indexhtml. howeverit does not------------------------
+// app.get('/', (req, res) => {
+//     res.json(path.join(__dirname, "/build/index.html"));
+//     console.log("building client");
+// });
+// ----------------------------------------------------------------------------------
 app.get('/parts', (req, res) => {
     connection.query(SELECT_ALL_PARTS_QUERY, (err, results) => {
         if (err) {
@@ -216,6 +218,7 @@ if (process.env.NODE_ENV === 'production') {
   
     app.get('*', (req, res) => {
         res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
+        console.log("hi")
     });
   }
 app.listen(process.env.PORT|| 4000)
