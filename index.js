@@ -3,9 +3,8 @@ const cors = require('cors');
 const mysql = require('mysql');
 // var connection = mysql.createConnection(process.env.JAWSDB_URL);
 const app = express();
-const router = require("express").Router();
 const path = require('path');
-const PORT = process.env.PORT || 4000
+// const port = process.env.PORT || 5000
 const SELECT_ALL_BIKES_QUERY = 'SELECT * FROM bikes';
 const SELECT_ALL_PARTS_QUERY = 'SELECT * FROM parts';
 const SELECT_ALL_ITEMS_QUERY = 'SELECT * FROM item_master';
@@ -17,32 +16,31 @@ const JAWSDB_URL = "mysql://q3vkaci9rd4kof20:eoi2k4tb4y8weyr4@durvbryvdw2sjcm5.c
 
 
 // require('dotenv').config();
-// if (process.env.NODE_ENV === "production") {
-//     app.use(express.static("client/build"));
-//   }
-app.use(express.static(path.join(__dirname, './client/build')))
 
-app.get('*', function(_, res) {
-  res.send(path.join(__dirname, './client/build/index.html'), function(err) {
-    if (err) {
-      res.status(500).send(err)
-   
-    }
-  })
-})
-// if(process.env.JAWSDB_URL) {  
-//   connection = mysql.createConnection(process.env.JAWSDB_URL);
-// } else {
-//   //otherwise, we're going to use our local connection!  put your local db set stuff here
-//   //(and remember our best practice of using the dotenv package and a .env file ;)
+
+if(process.env.JAWSDB_URL) {  
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  //otherwise, we're going to use our local connection!  put your local db set stuff here
+  //(and remember our best practice of using the dotenv package and a .env file ;)
+   connection = mysql.createConnection({
+    host: 'durvbryvdw2sjcm5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+    port: 3306,
+    user: 'q3vkaci9rd4kof20',
+    password: 'eoi2k4tb4y8weyr4',
+    database: 's2ccpvy7askck4c4'
+});
 //   connection = mysql.createConnection({
 //     host:'localhost',
 //         user:'Jon',
 //        password: '12345',
 //         database: 'BikeDB'
 //   });
-// }
-
+}
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port ${PORT}.`);
+// });
 // const connection = mysql.createConnection({
 //     host:'localhost',
 //     user:'Jon',
@@ -50,13 +48,6 @@ app.get('*', function(_, res) {
 //     database: 'BikeDB'
 // })
 
-const connection = mysql.createConnection({
-    host: 'durvbryvdw2sjcm5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-    port: 3306,
-    user: 'q3vkaci9rd4kof20',
-    password: 'eoi2k4tb4y8weyr4',
-    database: 's2ccpvy7askck4c4'
-});
 
 connection.connect(function (err) {
     if (err) {
@@ -67,11 +58,9 @@ connection.connect(function (err) {
 });
 
 app.use(cors());
-router.use(function(req, res) {
-    res.sendFile(path.join(__dirname, "../client/build/index.html"));
-  });
+
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, "../client/build/index.html"));
+    res.json(path.join(__dirname, "public/index.html"));
 });
 app.get('/parts', (req, res) => {
     connection.query(SELECT_ALL_PARTS_QUERY, (err, results) => {
@@ -221,15 +210,15 @@ app.get('/bikes', (req, res) => {
         }
     });
 });
-// if (process.env.NODE_ENV === 'production') {
-//     app.use(express.static( 'client/build' ));
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static( 'client/build' ));
   
-//     app.get('*', (req, res) => {
-//         res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
-//     });
-//   }
-// app.listen(process.env.PORT.JAWSDB_URL || 4000)
-app.listen(PORT, () => {
-    console.log('to to /bikes for bikes server')
-});
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
+    });
+  }
+app.listen(process.env.PORT|| 4000)
+// app.listen(4000, () => {
+//     console.log('to to /bikes for bikes server')
+// });
 

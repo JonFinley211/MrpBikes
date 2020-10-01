@@ -9,8 +9,9 @@
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node index.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-  
+    "server": "nodemon index.js",
     "client": "cd client && npm run start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "instalx": "cd client && npm install",
     "builx": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
