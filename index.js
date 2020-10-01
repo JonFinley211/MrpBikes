@@ -55,7 +55,7 @@ if(process.env.JAWSDB_URL) {
 // })
 
 if(process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'client2/build')))
+    app.use(express.static(path.join(__dirname, 'build')))
     //
     app.get('*', (req, res) => {
       res.sendFile(path.join('client2', 'build', 'index.html'))
@@ -80,10 +80,10 @@ connection.connect(function (err) {
 
 app.use(cors());
 //---------------thought app.get('/')directed to indexhtml. howeverit does not------------------------
-app.get('/', (req, res) => {
-    res.json(path.join(__dirname, "/build/index.html"));
+// app.get('/', (req, res) => {
+//     res.json(path.join(__dirname, "/build/index.html"));
   
-});
+// });
 // ----------------------------------------------------------------------------------
 app.get('/parts', (req, res) => {
     connection.query(SELECT_ALL_PARTS_QUERY, (err, results) => {
