@@ -69,6 +69,7 @@ class Mrfg extends Component {
         <div className="container">
           <Card>
             <header align="center">
+              <label>select a bike</label>
               <select
                 onChange={e => this.setState({ mrfgbike: { ...mrfgbike, mrfgid: e.target.value  } })} >{mrfgbikes.map(this.ddrendermrfgBikes)}</select>
               <input type="text"
