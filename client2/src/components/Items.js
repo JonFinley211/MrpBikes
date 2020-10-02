@@ -19,7 +19,7 @@ class Imitems extends Component {
     this.getBikes();
   }
   getBikes = _ => {
-    fetch('http://localhost:4000/items')
+    fetch('https://serene-plains-84450.herokuapp.com/items')
       .then(response => response.json())
       // .then((data)=>{
       //   console.log(data)
