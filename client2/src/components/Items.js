@@ -28,7 +28,7 @@ class Imitems extends Component {
   }
   // addBike = _ => {
   //   const { bike } = this.state;
-  //   fetch(`http://localhost:4000/items/add?im_item_no=${bike.im_item_no}&im_desc=${bike.im_desc}&im_uofm=${bike.im_uofm}&im_oh=${bike.im_oh}`)
+  //   fetch(`https://serene-plains-84450.herokuapp.com/items/add?im_item_no=${bike.im_item_no}&im_desc=${bike.im_desc}&im_uofm=${bike.im_uofm}&im_oh=${bike.im_oh}`)
   //     .then(this.getBikes)
   //     .catch(err => console.error(err))
   // }
