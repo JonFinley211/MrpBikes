@@ -116,7 +116,7 @@ app.get('/bomx', (req, res) => {
     // // const {mrfgbike.mrfgid,mrfgbike.mrfgqty}= req.query;
     // const SELECT_BOMX_QUERY=`CALL BomExplode('${mrfgbike.mrfgid}','${mrfgbike.mrfgqty}')`;
     // const SELECT_BOMX_QUERY="CALL BomExplode('BX-0004',1400)";
-    // http://localhost:4000/bomx?im_item_no=BX-0004&grossqty=60
+    // https://serene-plains-84450.herokuapp.com/bomx?im_item_no=BX-0004&grossqty=60
     connection.query(SELECT_BOMX_QUERY, (err, results) => {
         console.log("query response")
         console.log(SELECT_BOMX_QUERY)
@@ -140,7 +140,7 @@ app.get('/boml', (req, res) => {
     // // const {mrfgbike.mrfgid,mrfgbike.mrfgqty}= req.query;
     // const SELECT_BOMX_QUERY=`CALL BomExplode('${mrfgbike.mrfgid}','${mrfgbike.mrfgqty}')`;
     // const SELECT_BOMX_QUERY="CALL BomExplode('BX-0004',1400)";
-    // http://localhost:4000/bomx?im_item_no=BX-0004&grossqty=60
+    // https://serene-plains-84450.herokuapp.com/bomx?im_item_no=BX-0004&grossqty=60
     connection.query(SELECT_BOML_QUERY, (err, results) => {
         console.log("query response")
         console.log(SELECT_BOML_QUERY)
