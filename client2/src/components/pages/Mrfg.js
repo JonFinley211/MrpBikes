@@ -64,16 +64,16 @@ class Mrfg extends Component {
 
       <div className="services">
         <div align="center" >
-          <h1 className="display-3">Material Requirements</h1>
+          <h1 className="display-2">Material Requirements</h1>
         </div>
         <div className="container">
           <Card>
             <header align="center">
-              <label>select a bike</label>
+            <label >select a bike</label>
               <select
                 onChange={e => this.setState({ mrfgbike: { ...mrfgbike, mrfgid: e.target.value  } })} >{mrfgbikes.map(this.ddrendermrfgBikes)}</select>
               <input type="text"
-                value={mrfgbike.mrfgqty}
+                selected value={mrfgbike.mrfgqty}
                 placeholder="Quantity to Make"
                 onChange={e => this.setState({ mrfgbike: { ...mrfgbike, mrfgqty: e.target.value } })} />
               <Button className='adimbtn btn' onClick={this.addmrfgBike} >Calculate</Button>
