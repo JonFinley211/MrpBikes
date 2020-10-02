@@ -64,7 +64,7 @@ class Mrfg extends Component {
 
       <div className="services">
         <div align="center" >
-          <h1 className="display-2">Material Requirements</h1>
+          <h1 className="display-4">Material Requirements</h1>
         </div>
         <div className="container">
           <Card>
