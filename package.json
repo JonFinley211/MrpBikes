@@ -14,7 +14,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client2\"",
     "instalx": "cd client2 && npm install",
     "builx": "cd client2 && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild":  "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
   },
   "author": "Jon",
   "license": "ISC",
