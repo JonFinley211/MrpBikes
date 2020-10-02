@@ -241,7 +241,7 @@ if (process.env.NODE_ENV === 'production') {
         console.log("hi")
     });
   }
-app.listen(process.env.PORT|| 4000)
+app.listen(process.env.PORT)
 // app.listen(4000, () => {
 //     console.log('to to /bikes for bikes server')
 // });
