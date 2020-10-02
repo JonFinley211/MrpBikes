@@ -39,8 +39,8 @@ function Navbar() {
         
         <img
                 src={logoImage}
-                width="300"
-                height="80"
+                width="150"
+                height="40"
                 className="pr-2"
                 alt=""
               />
